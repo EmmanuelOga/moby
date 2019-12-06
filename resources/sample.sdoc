@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<topic xmlns="https://eoga.dev/sdoc/" xmlns:rp="https://eoga.dev/rdfpub/">
+    <p rp:pat="emm:me schema:name ?o">
+        This is the website of <span rp:sel="?o" />
+    </p>
+    <p rp:pat="?thing a schema:Thing">
+        And the first thing found:
+        <span rp:select="?thing" />
+        <span rp:epxr="?thing schema:something ?o" rp:sel="?o" />
+    </p>
+</topic>

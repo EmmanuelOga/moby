@@ -1,0 +1,40 @@
+@prefix schema: <http://schema.org/> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc:     <http://purl.org/dc/elements/1.1/> .
+
+@prefix emm:    <https://emmanueloga.com/> .
+
+@prefix sdoc:   <https://eoga.dev/sdoc/> .
+@prefix rp:     <https://eoga.dev/rdfpub/> .
+
+[ a                  schema:Thing ;
+  schema:description "The thing" ; ] .
+
+emm:me
+    a           schema:Person ;
+    schema:name "Emmanuel Oga" ;
+    rp:content emm:about
+.
+
+emm:about
+    a        rp:document ;
+    dc:title 'About' ;
+    rp:topics ( emm:topic-about )
+.
+
+emm:topic-about
+    a        rp:topic ;
+    dc:title 'About' ;
+    rp:xml   '''<?xml version="1.0" encoding="UTF-8"?>
+<topic xmlns="https://eoga.dev/sdoc/" xmlns:rp="https://eoga.dev/rdfpub/">
+  <p rp:pat="emm:me schema:name ?o">
+    This is the website of <span rp:sel="?o" />
+  </p>
+  <p rp:pat="?thing a schema:Thing">
+    And the first thing found:
+    <span rp:select="?thing" />
+    <span rp:epxr="?thing schema:something ?o" rp:sel="?o" />
+  </p>
+</topic>'''
+.
+

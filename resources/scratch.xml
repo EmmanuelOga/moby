@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bikes>
+    <bike>
+        <brand>Raleigh</brand>
+        <model>Revenio 3.0</model>
+        <price>1199</price>
+        <group>105</group>
+        <shop>REI</shop>
+    </bike>
+</bikes>
