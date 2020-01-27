@@ -30,12 +30,6 @@
     .iterator
     iterator-seq))
 
-(defn short [obj]
-  (let [val (str obj)]
-    (if (< (count val) 256)
-      val
-      (str (subs val 0 255) "..."))))
-
 (defmethod print-method Statement [v ^Writer w]
   (let [s (short (. v getSubject))
         p (short (. v getPredicate))

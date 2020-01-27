@@ -5,6 +5,8 @@
            (java.io StringWriter)
            (javax.xml.transform.stream StreamSource)))
 
+(def default-processor (Processor. false))
+
 (def saxon
   "The default XSLT processor and compiler (Saxon HE edition)"
   (let [p (Processor. false) c (.newXsltCompiler default-processor)]

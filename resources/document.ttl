@@ -27,14 +27,20 @@ emm:topic-about
     dc:title 'About' ;
     rp:xml   '''<?xml version="1.0" encoding="UTF-8"?>
 <topic xmlns="https://eoga.dev/sdoc/" xmlns:rp="https://eoga.dev/rdfpub/">
-  <p rp:pat="emm:me schema:name ?o">
-    This is the website of <span rp:sel="?o" />
+  <p>
+    This is the website of <rp:value select="emm:me -> schema:name -> ?o" />
   </p>
-  <p rp:pat="?thing a schema:Thing">
+  <rp:bind name="emm" pattern="emm:me schema:name ?o"/>
+  <p>
+    This is the website of <rp:value bindings="emm" select="?o" />
+  </p>
+  <p>
+    <rp:bind pattern="?thing a schema:Thing" name="thing1" />
+    <rp:bind pattern="?thing schema:something ?o" name="thing2" />
+
     And the first thing found:
-    <span rp:select="?thing" />
-    <span rp:epxr="?thing schema:something ?o" rp:sel="?o" />
+    <rp:value bindings="thing1" select="?thing" />
+    <rp:value bindings="thing1 thing2" select="?o" />
   </p>
 </topic>'''
 .
-
